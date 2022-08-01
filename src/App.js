@@ -99,13 +99,13 @@ async  function sendData(){
             })
           }
         </select>
-        <a href='#' className='fs-6'  onClick={()=>create()}>+ Add newschema</a>
+        <p  className='add-schema'  onClick={()=>create()}>+ Add newschema</p>
         <div>
-          <button setNewSchemaclassName='btn btn-primary mt-4' onClick={()=>sendData()}>Save Segment</button>
+          <button className='btn btn-primary mt-4' onClick={()=>sendData()}>Save Segment</button>
         </div>
         </div>
         </div>:<div className='d-flex justify-content-center align-items-center p-5'>
-         <button type='button' className='btn btn-warning' onClick={()=>setPopup(true)}>Save Segment</button>
+         <button type='button' className='btn btn-primary' onClick={()=>setPopup(true)}>Save Segment</button>
          </div>
       }
     
