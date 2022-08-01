@@ -17,6 +17,7 @@
   box-shadow: 2px 1px 104px -4px rgba(0,0,0,0.75);
 -webkit-box-shadow: 2px 1px 104px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: 2px 1px 104px -4px rgba(0,0,0,0.75);
+padding: 10px;
 
 }
 .head{
@@ -29,9 +30,13 @@
 .content{
   margin: 20px 30px;
 }
+
 .content .blue-box{
   border: 2px solid rgb(53, 177, 255);
   padding: 20px 30px;
+}
+.blue-box select{
+  margin:10px 0;
 }
 .disable{
   display: none;

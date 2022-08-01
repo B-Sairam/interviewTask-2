@@ -6,13 +6,13 @@ const App = () => {
   const [segmentName,setSegmentName]=useState("");
   const [SelectedInput,setSelector] = useState([]);
   const [newSchema,setNewSchema] = useState();
-  const [schema,setSchema]=useState([])
   const [popup,setPopup]=useState(false);
   let output = {
     "Segment_name":segmentName,
     "schema":SelectedInput
   }
-  console.log(segmentName);
+ 
+
   let data = [{lable: "First Name", Value: "first_name"},
     {lable: "Last Name", Value: "last_name"},
     { lable: "Gender", Value: "gender"},
@@ -24,15 +24,19 @@ const App = () => {
 async  function sendData(){
     if(!segmentName){
       alert("Enter the segment name")
-    }else if(SelectedInput.length==0){
+    }else if(SelectedInput.length===0){
       alert("Add schema to the segment")
     }else{
       try {
         const config = {
           headers:{"Content-type":"application/json",},
         }
-        let {data} = await axios.post("https://webhook.site/876b30e9-643d-4f96-9683-9a503fe148ff",output,config);
-        console.log(data);
+        await axios.post("https://webhook.site/876b30e9-643d-4f96-9683-9a503fe148ff",output,config);
+        console.log(output);
+        alert("schema Saved Successfully");
+        setSegmentName("");
+        setSelector([]);
+        setNewSchema("");
       } catch (error) {
         
       }
@@ -80,7 +84,7 @@ async  function sendData(){
             <option value={e.Value}>{e.lable}</option>
             {
             data.filter((d=>d.Value!==e.Value)).map((e,i)=>{
-              return <option value={e.Value}>{e.lable}</option>
+              return <option key={i} value={e.Value}>{e.lable}</option>
             })
           }
           </select>
@@ -97,7 +101,7 @@ async  function sendData(){
         </select>
         <a href='#' className='fs-6'  onClick={()=>create()}>+ Add newschema</a>
         <div>
-          <button className='btn btn-primary mt-4' onClick={()=>sendData()}>Save Segment</button>
+          <button setNewSchemaclassName='btn btn-primary mt-4' onClick={()=>sendData()}>Save Segment</button>
         </div>
         </div>
         </div>:<div className='d-flex justify-content-center align-items-center p-5'>
@@ -111,4 +115,4 @@ async  function sendData(){
   </>
 }
 
-export default App
+export default App;
