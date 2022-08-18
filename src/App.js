@@ -31,7 +31,7 @@ async  function sendData(){
         const config = {
           headers:{"Content-type":"application/json",},
         }
-        await axios.post("https://webhook.site/876b30e9-643d-4f96-9683-9a503fe148ff",output,config);
+        await axios.post("https://webhook.site/3649626a-0295-40af-8545-3c1399678307",output,config);
         console.log(output);
         alert("schema Saved Successfully");
         setSegmentName("");
